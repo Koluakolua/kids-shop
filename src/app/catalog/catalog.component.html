@@ -1,0 +1,8 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-5 p-5">
+  <ng-container *ngFor="let item of catalogItems; let i = index">
+    <app-catalog-item
+      [catalogItem]="item"
+      (click)="onItemClick(i)"
+    ></app-catalog-item>
+  </ng-container>
+</div>

@@ -1,0 +1,56 @@
+<form [formGroup]="formGroup" class="">
+  <p>
+    <mat-form-field floatLabel="always" appearance="fill">
+      <mat-label>ПІБ</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+  </p>
+
+  <p class="pb-5">
+    <mat-form-field floatLabel="always" appearance="fill">
+      <mat-label>Телефон</mat-label>
+      <input matInput formControlName="phone">
+      <mat-hint>+380-XX-XXX-XX-XX</mat-hint>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field floatLabel="always" appearance="fill">
+      <mat-label>Місто</mat-label>
+      <mat-select matInput formControlName="city">
+        <ng-container *ngFor="let city of mockCities">
+          <mat-option [value]="city">{{ city }}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field floatLabel="always" appearance="fill">
+      <mat-label>Відділення</mat-label>
+      <mat-select
+        matInput formControlName="npUnit"
+        [disabled]="!this.formGroup.value.city"
+      >
+        <ng-container *ngFor="let unit of mockNpUnits">
+          <mat-option [value]="unit">{{ unit.number + ', ' + unit.address }}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+  </p>
+
+  <div class="min-h-20">
+    <mat-form-field floatLabel="always" appearance="fill">
+      <mat-label>Коментар</mat-label>
+      <textarea matInput formControlName="comment"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="">
+    <button class="" mat-stroked-button color="primary"
+            [disabled]="!formGroup.valid || orderService.getItemsTotalCount() === 0"
+            (click)="onCheckout()"
+    >Оформити замовлення
+    </button>
+  </div>
+</form>

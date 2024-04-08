@@ -1,0 +1,24 @@
+<div class="container p-5 pt-10 mb-5">
+  <div class="">
+    <app-image-carousel [images]="product.images"></app-image-carousel>
+  </div>
+  <div class="flex flex-col items-start description">
+    <div class="flex flex-col shadow-lg p-5 rounded mb-10 w-full">
+      <div class="text-lg font-bold mb-5 w-full">
+        {{ product.title }}
+      </div>
+      <div class="mb-5">
+        {{ product.description }}
+      </div>
+    </div>
+    <div
+      class="w-full"
+      (click)="onCartClick()"
+    >
+      <button class="text-lg bg-gray-100" mat-raised-button>
+        Додати у кошик
+        <mat-icon class="ml-3">shopping_cart</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {CatalogItem, catalogItems} from "../assets/catalog-items";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'kids-shop';
+  catalogItems: CatalogItem[] = catalogItems;
+
+
 }

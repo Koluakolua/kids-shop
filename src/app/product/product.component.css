@@ -1,0 +1,13 @@
+@media (min-width: 640px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Adjust the ratio according to your design */
+    grid-gap: 20px;
+  }
+}
+
+@media not (min-width: 640px) {
+  .description {
+    margin-top: 20px;
+  }
+}

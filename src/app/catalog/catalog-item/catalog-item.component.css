@@ -1,0 +1,7 @@
+.item:hover .overlay {
+  opacity: 0.7;
+}
+
+.gray-button {
+  background-color: #fff;
+}

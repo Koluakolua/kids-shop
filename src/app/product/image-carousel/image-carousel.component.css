@@ -1,0 +1,15 @@
+.current {
+  opacity: 0.5;
+}
+
+.carousel {
+  display: grid;
+  /*grid-template-rows: 4fr 1fr; !* Adjust the ratio for main image and thumbnails *!*/
+  grid-gap: 10px; /* Gap between main image and thumbnails */
+}
+
+.thumbnails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Three thumbnails, evenly spaced */
+  grid-gap: 10px; /* Gap between thumbnails */
+}
