@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class TelegramBotService {
-  private gateway = 'http://localhost:3000';
+  private gateway = 'https://oi5bo0kvbe.execute-api.eu-north-1.amazonaws.com/staging';
 
   constructor(private http: HttpClient) {}
 
