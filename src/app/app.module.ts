@@ -28,6 +28,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatCardModule} from "@angular/material/card";
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ReviewFormComponent } from './reviews/review-form/review-form.component';
+//import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from "ng-recaptcha";
 
 @NgModule({
   declarations: [
@@ -61,9 +62,10 @@ import { ReviewFormComponent } from './reviews/review-form/review-form.component
         MatInputModule,
         ReactiveFormsModule,
         MatSelectModule,
-        MatCardModule
+        MatCardModule,
+        //RecaptchaV3Module
     ],
-  providers: [],
+  providers: [],//{ provide: RECAPTCHA_V3_SITE_KEY, useValue: "<YOUR_SITE_KEY>" }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
