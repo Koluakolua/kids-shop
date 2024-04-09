@@ -26,6 +26,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatCardModule} from "@angular/material/card";
+import { ReviewsComponent } from './reviews/reviews.component';
+import { ReviewFormComponent } from './reviews/review-form/review-form.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import {MatCardModule} from "@angular/material/card";
     OrderComponent,
     CheckoutComponent,
     CheckoutFormComponent,
+    ReviewsComponent,
+    ReviewFormComponent,
 
   ],
     imports: [

@@ -1,0 +1,12 @@
+<div class="shadow-lg mb-5">
+  <app-review-form></app-review-form>
+</div>
+<div>
+  <ng-container *ngFor="let review of reviews">
+    <div class="shadow-lg mt-5 p-5">
+      <div class="text-lg font-semibold">{{ review.name }}</div>
+      <div class="mb-5">{{ review.date }}</div>
+      <div>{{ review.review }}</div>
+    </div>
+  </ng-container>
+</div>

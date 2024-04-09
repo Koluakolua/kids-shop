@@ -1,11 +1,11 @@
 <div class="carousel">
   <img
-      class="object-cover rounded"
+      class=" rounded"
     [src]="images[current]">
   <div class="thumbnails">
     <ng-container *ngFor="let image of images; let i = index">
       <img
-        class="object-cover"
+        class=""
         [class.current]="current === i"
         [src]="images[i]"
         (click)="current=i"

@@ -1,0 +1,23 @@
+<form [formGroup]="formGroup" class="p-5">
+  <p>
+    <mat-form-field floatLabel="always" appearance="fill">
+      <mat-label>ПІБ</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+  </p>
+
+  <div class="min-h-20">
+    <mat-form-field floatLabel="always" appearance="fill">
+      <mat-label>Відгук</mat-label>
+      <textarea matInput formControlName="review"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="">
+    <button class="" mat-stroked-button color="primary"
+            [disabled]="!formGroup.valid"
+            (click)="onSubmitReview()"
+    >Надіслати відгук
+    </button>
+  </div>
+</form>

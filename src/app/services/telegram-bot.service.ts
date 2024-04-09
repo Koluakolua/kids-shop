@@ -17,7 +17,6 @@ export class TelegramBotService {
       chat_id: this.chatId,
       text: message
     };
-
     return this.http.post(url, body);
   }
 }

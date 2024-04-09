@@ -17,25 +17,14 @@
   <p>
     <mat-form-field floatLabel="always" appearance="fill">
       <mat-label>Місто</mat-label>
-      <mat-select matInput formControlName="city">
-        <ng-container *ngFor="let city of mockCities">
-          <mat-option [value]="city">{{ city }}</mat-option>
-        </ng-container>
-      </mat-select>
+      <input matInput formControlName="city">
     </mat-form-field>
   </p>
 
   <p>
     <mat-form-field floatLabel="always" appearance="fill">
-      <mat-label>Відділення</mat-label>
-      <mat-select
-        matInput formControlName="npUnit"
-        [disabled]="!this.formGroup.value.city"
-      >
-        <ng-container *ngFor="let unit of mockNpUnits">
-          <mat-option [value]="unit">{{ unit.number + ', ' + unit.address }}</mat-option>
-        </ng-container>
-      </mat-select>
+      <mat-label>НП № Відділення</mat-label>
+      <input matInput formControlName="npUnit">
     </mat-form-field>
   </p>
 
@@ -54,3 +43,6 @@
     </button>
   </div>
 </form>
+<div class="font-medium text-md mt-5">
+  * Оплата здіюснюється наложеним платежем, доставка за тарифами Нової Пошти
+</div>
