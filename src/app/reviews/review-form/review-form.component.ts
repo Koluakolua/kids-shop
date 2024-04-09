@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {TelegramBotService} from "../../services/telegram-bot.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {ReCaptchaV3Service} from "ng-recaptcha";
+import {switchMap, tap} from "rxjs";
 
 @Component({
   selector: 'app-review-form',
@@ -17,13 +19,17 @@ export class ReviewFormComponent implements OnInit {
   constructor(
     private botService: TelegramBotService,
     private snackBar: MatSnackBar,
+    private recaptchaV3Service: ReCaptchaV3Service,
   ) { }
 
   ngOnInit(): void {
   }
 
   onSubmitReview() {
-    this.botService.sendMessage(JSON.stringify(this.formGroup.value)).subscribe({
+    this.recaptchaV3Service.execute('review').pipe(
+      tap(() => console.log("Captcha Success")),
+      switchMap(() => this.botService.sendMessage(JSON.stringify(this.formGroup.value)))
+    ).subscribe({
       next: () => {
         this.snackBar.open('Модератор перегляне відгук та додасть його', '', {
           duration: 2000

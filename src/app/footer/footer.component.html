@@ -3,22 +3,25 @@
   <div class="flex justify-center align-middle gap-8 flex-col md:flex-row  p-5">
     <div>
       <mat-icon class="mr-2">phone</mat-icon>
-      <span class="text-lg font-medium relative bottom-2">+380986665544</span>
+      <a class="text-lg font-medium relative bottom-2 cursor-pointer"
+         href="tel:+380986665544"
+      >+380986665544</a>
     </div>
     <div>
       <mat-icon class="mr-2">people</mat-icon>
-      <span class="text-lg font-medium relative bottom-2">https://instagram.com/dsdfjhsdkj</span>
+      <a class="text-lg font-medium relative bottom-2 cursor-pointer"
+         href="https://instagram.com" target="_blank"
+      >https://instagram.com/dsdfjhsdkj</a>
     </div>
     <div>
       <mat-icon class="mr-2">access_time</mat-icon>
       <span class="text-lg font-medium relative bottom-2">Пн-Пт 09.00-19.00</span>
     </div>
     <div
+      [routerLink]="'/reviews'"
     >
       <mat-icon class="mr-2">comment</mat-icon>
-      <a class="text-lg font-medium relative bottom-2"
-         [routerLink]="'/reviews'"
-      >Відгуки</a>
+      <span class="text-lg font-medium relative bottom-2 cursor-pointer">Відгуки</span>
     </div>
   </div>
 </div>

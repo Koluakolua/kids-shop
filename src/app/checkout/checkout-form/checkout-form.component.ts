@@ -3,6 +3,8 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Valid
 import {TelegramBotService} from "../../services/telegram-bot.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {OrderItem, OrderService} from "../../services/order.service";
+import {ReCaptchaV3Service} from "ng-recaptcha";
+import {switchMap, tap} from "rxjs";
 
 @Component({
   selector: 'app-checkout-form',
@@ -37,19 +39,22 @@ export class CheckoutFormComponent implements OnInit {
     private fb: FormBuilder,
     private botService: TelegramBotService,
     private snackBar: MatSnackBar,
-    public orderService: OrderService
+    public orderService: OrderService,
+    private recaptchaV3Service: ReCaptchaV3Service,
   ) { }
 
   ngOnInit(): void {
   }
 
   onCheckout() {
-
     const order = {
       ...this.formGroup.value,
       ...this.orderService.order$.value
     };
-    this.botService.sendMessage(JSON.stringify(order)).subscribe({
+    this.recaptchaV3Service.execute('checkout').pipe(
+      tap(() => console.log("Captcha Success")),
+      switchMap((token) => this.botService.sendMessage(JSON.stringify(order)))
+    ).subscribe({
       next: () => {
           this.snackBar.open('Заказ було прийнято в обробку', '', {
             duration: 2000
