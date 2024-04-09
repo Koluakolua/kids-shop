@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from "@angular/forms";
 import {TelegramBotService} from "../../services/telegram-bot.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {OrderItem, OrderService} from "../../services/order.service";
+import {OrderService} from "../../services/order.service";
 import {ReCaptchaV3Service} from "ng-recaptcha";
 import {switchMap, tap} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-checkout-form',
@@ -12,21 +13,6 @@ import {switchMap, tap} from "rxjs";
   styleUrls: ['./checkout-form.component.css']
 })
 export class CheckoutFormComponent implements OnInit {
-  mockNpUnits = [
-    {
-      number: 123,
-      address: "Ilfa ta Petrova"
-    },
-    {
-      number: 153,
-      address: "Ilfa ta Petrova"
-    },
-  ];
-
-  mockCities = [
-    "Одеса", "Київ"
-  ];
-
   formGroup = new FormGroup({
     phone: new FormControl(null, Validators.required),
     name: new FormControl(null, Validators.required),
@@ -41,6 +27,7 @@ export class CheckoutFormComponent implements OnInit {
     private snackBar: MatSnackBar,
     public orderService: OrderService,
     private recaptchaV3Service: ReCaptchaV3Service,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -60,9 +47,11 @@ export class CheckoutFormComponent implements OnInit {
             duration: 2000
           });
           this.orderService.clearOrder();
+          this.router.navigate(['/']);
       },
-      error: () => {
-        this.snackBar.open('Сталася якась помилка, будь ласка, наберіть контактний номер', '', {
+      error: (e) => {
+        console.error(e);
+        this.snackBar.open('Сталася якась помилка, будь ласка, спробуйте ще раз аобі наберіть контактний номер', '', {
           duration: 5000
         });
       }
