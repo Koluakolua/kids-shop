@@ -28,8 +28,8 @@ export class ReviewFormComponent implements OnInit {
   onSubmitReview() {
     const review = this.formGroup.value;
     const reviewText =
-`*Ім'я*: ${review.name}\n
-*Відгук*: ${review.review}`;
+`Ім'я: ${review.name}
+Відгук: ${review.review}`;
 
     this.recaptchaV3Service.execute('review').pipe(
       tap(() => console.log("Captcha Success")),

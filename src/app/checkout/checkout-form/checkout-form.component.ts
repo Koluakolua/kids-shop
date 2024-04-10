@@ -36,14 +36,14 @@ export class CheckoutFormComponent implements OnInit {
   onCheckout() {
     const form = this.formGroup.value;
     const formText =
-`*ПІБ*:${form.name}\n
-*Телефон*:${form.phone}\n
-*Місто*:${form.city}\n
-*Відділення*:${form.npUnit}\n
-*Коментар*:${form.comment}\n\n`;
+`ПІБ: ${form.name}
+Телефон: ${form.phone}
+Місто: ${form.city}
+Відділення: ${form.npUnit}
+Коментар: ${form.comment}\n`;
 
     const order = this.orderService.order$.value;
-    let orderText = '*Замовлення:*\n';
+    let orderText = 'Замовлення:\n';
     order.forEach((order) => {
       orderText += `${order.item.title}: ${order.quantity} шт.\n`;
     });
