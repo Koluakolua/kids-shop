@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@ks89/angular-modal-gallery": "^8.0.1",
     "ng-recaptcha": "^10.0.0",
     "node-telegram-bot-api": "^0.65.1",
     "rxjs": "~7.5.0",
