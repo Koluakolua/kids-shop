@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
 
   onCartClick() {
     const dialogRef = this.dialog.open(CartDialogComponent, {
+      autoFocus: "dialog",
       width: '100%',
       data: {}
     });

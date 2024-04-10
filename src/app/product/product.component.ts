@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CatalogItem, catalogItems} from "../../assets/catalog-items";
 import {OrderService} from "../services/order.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Image} from "@ks89/angular-modal-gallery";
 
 @Component({
   selector: 'app-product',
@@ -11,6 +12,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class ProductComponent implements OnInit {
   product!: CatalogItem;
+  images: Image[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router, public orderService: OrderService, private snackBar: MatSnackBar,) { }
 

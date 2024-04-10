@@ -1,15 +1,7 @@
-<div class="carousel">
-  <img
-      class=" rounded"
-    [src]="images[current]">
-  <div class="thumbnails">
-    <ng-container *ngFor="let image of images; let i = index">
-      <img
-        class=""
-        [class.current]="current === i"
-        [src]="images[i]"
-        (click)="current=i"
-      >
-    </ng-container>
-  </div>
+<div>
+  <ks-carousel
+    [id]="999"
+    [images]="images"
+    [carouselConfig]="carouselConfig"
+    (click)="onEvent($event)"></ks-carousel>
 </div>

@@ -29,6 +29,7 @@ import {MatCardModule} from "@angular/material/card";
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ReviewFormComponent } from './reviews/review-form/review-form.component';
 import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from "ng-recaptcha";
+import {GalleryModule} from "@ks89/angular-modal-gallery";
 
 @NgModule({
   declarations: [
@@ -47,24 +48,25 @@ import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from "ng-recaptcha";
     ReviewFormComponent,
 
   ],
-    imports: [
-        MatSnackBarModule,
-        HttpClientModule,
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatIconModule,
-        MatButtonModule,
-        MatDialogModule,
-        MatBadgeModule,
-        MatTableModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatSelectModule,
-        MatCardModule,
-        RecaptchaV3Module
-    ],
+  imports: [
+    MatSnackBarModule,
+    HttpClientModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatBadgeModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatCardModule,
+    RecaptchaV3Module,
+    GalleryModule
+  ],
   providers: [{ provide: RECAPTCHA_V3_SITE_KEY, useValue: "6Lc1Y7UpAAAAAL3v8noVmhbN6QsY6RL2xmAuvcuE" }],
   bootstrap: [AppComponent]
 })

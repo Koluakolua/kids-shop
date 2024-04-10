@@ -9,6 +9,7 @@
       <td mat-cell *matCellDef="let element">
         <div class="text-nowrap">
           <button class="arrow" mat-icon-button
+                  [disableRipple]="true"
                   (click)="onArrowClick('left', element.id)"
           >
             <mat-icon>keyboard_arrow_left</mat-icon>

@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/cdk/overlay-prebuilt.css"; /* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,4 +7,11 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 mat-form-field {
   width: 100%;
+}
+.ks-modal-gallery-backdrop {
+  background: #000 !important;;
+  opacity: 0.85 !important;;
+}
+.ks-modal-gallery-panel {
+  z-index: 90000 !important;
 }
