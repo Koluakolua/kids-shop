@@ -34,13 +34,23 @@ export class CheckoutFormComponent implements OnInit {
   }
 
   onCheckout() {
-    const order = {
-      ...this.formGroup.value,
-      ...this.orderService.order$.value
-    };
+    const form = this.formGroup.value;
+    const formText =
+`*ПІБ*:${form.name}\n
+*Телефон*:${form.phone}\n
+*Місто*:${form.city}\n
+*Відділення*:${form.npUnit}\n
+*Коментар*:${form.comment}\n\n`;
+
+    const order = this.orderService.order$.value;
+    let orderText = '*Замовлення:*\n';
+    order.forEach((order) => {
+      orderText += `${order.item.title}: ${order.quantity} шт.\n`;
+    });
+
     this.recaptchaV3Service.execute('checkout').pipe(
       tap(() => console.log("Captcha Success")),
-      switchMap((token) => this.botService.sendMessage(JSON.stringify(order)))
+      switchMap((token) => this.botService.sendMessage(formText + orderText))
     ).subscribe({
       next: () => {
           this.snackBar.open('Заказ було прийнято в обробку', '', {

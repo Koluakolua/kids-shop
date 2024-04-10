@@ -26,9 +26,14 @@ export class ReviewFormComponent implements OnInit {
   }
 
   onSubmitReview() {
+    const review = this.formGroup.value;
+    const reviewText =
+`*Ім'я*: ${review.name}\n
+*Відгук*: ${review.review}`;
+
     this.recaptchaV3Service.execute('review').pipe(
       tap(() => console.log("Captcha Success")),
-      switchMap(() => this.botService.sendMessage(JSON.stringify(this.formGroup.value)))
+      switchMap(() => this.botService.sendMessage(reviewText))
     ).subscribe({
       next: () => {
         this.snackBar.open('Модератор перегляне відгук та додасть його', '', {
