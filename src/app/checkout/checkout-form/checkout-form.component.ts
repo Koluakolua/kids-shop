@@ -45,7 +45,7 @@ export class CheckoutFormComponent implements OnInit {
     const order = this.orderService.order$.value;
     let orderText = 'Замовлення:\n';
     order.forEach((order) => {
-      orderText += `${order.item.title}: ${order.quantity} шт.\n`;
+      orderText += `-${order.item.title}: ${order.quantity} шт.\n`;
     });
 
     this.recaptchaV3Service.execute('checkout').pipe(
